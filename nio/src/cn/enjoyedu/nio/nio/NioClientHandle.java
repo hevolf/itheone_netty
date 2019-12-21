@@ -126,6 +126,7 @@ public class NioClientHandle implements Runnable{
                 /*将通道的数据读取到缓冲区，read方法返回读取到的字节数*/
                 int readBytes = sc.read(buffer);
                 if(readBytes>0){
+                    // flip
                     buffer.flip();
                     byte[] bytes = new byte[buffer.remaining()];
                     buffer.get(bytes);
